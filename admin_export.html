@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Export</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>🔐 Export ข้อมูลร้องเรียน</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flash-messages">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" class="form-container">
+    <label>รหัสผ่านผู้ดูแล *</label>
+    <input type="password" name="password" required>
+
+    <label>จากวันที่</label>
+    <input type="date" name="from_date">
+
+    <label>ถึงวันที่</label>
+    <input type="date" name="to_date">
+
+    <label>เลือกรูปแบบไฟล์</label>
+    <select name="format">
+      <option value="csv">CSV</option>
+      <option value="json">JSON</option>
+      <option value="excel">Excel (.xlsx)</option>
+    </select>
+
+    <button type="submit">📥 ดาวน์โหลด</button>
+  </form>
+</body>
+</html>

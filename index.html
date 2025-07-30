@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สพป.อุบลราชธานี เขต 2 - ร้องเรียนการทุจริตและประพฤติมิชอบ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Sarabun', 'Arial', sans-serif;
+            margin: 0;
+            background: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .top-bar {
+            background: #f5f5f5;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .top-bar .left {
+            font-weight: bold;
+        }
+        
+        .top-bar .right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .social-icon {
+            text-decoration: none;
+            color: #4267B2;
+            font-weight: bold;
+        }
+        
+        header {
+            background: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        nav {
+            background: #fff;
+            border-bottom: 3px solid #e74c3c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        nav li a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        nav li a:hover, nav .active a {
+            color: #e74c3c;
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .hero-section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-section p {
+            font-size: 14px;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+        
+        .report-section {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .contact-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-box:hover {
+            transform: translateY(-3px);
+        }
+        
+        .contact-box h3 {
+            color: #e74c3c;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .contact-box p {
+            margin: 2px 0;
+            font-size: 14px;
+        }
+        
+        .form-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .form-section h3 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .report-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 10px;
+            border: 2px solid #e1e5e9;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .submit-btn {
+            grid-column: span 2;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Admin Panel Styles */
+        .admin-access {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .admin-access-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .admin-access-btn:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+        
+        .admin-panel {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            margin-top: 20px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .admin-panel h3 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .admin-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .admin-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-btn {
+            background: #3498db;
+            color: white;
+        }
+        
+        .admin-btn:hover {
+            background: #2980b9;
+            transform: translateY(-1px);
+        }
+        
+        .export-btn {
+            background: #27ae60 !important;
+        }
+        
+        .export-btn:hover {
+            background: #219a52 !important;
+        }
+        
+        .danger-btn {
+            background: #e74c3c !important;
+        }
+        
+        .danger-btn:hover {
+            background: #c0392b !important;
+        }
+        
+        .reports-container {
+            margin-top: 20px;
+        }
+        
+        .reports-summary {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .reports-summary h4 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        
+        .report-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .report-id {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        .report-date {
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        
+        .report-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .report-field {
+            font-size: 14px;
+        }
+        
+        .report-field strong {
+            color: #2c3e50;
+        }
+        
+        .report-complaint {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .report-complaint strong {
+            color: #2c3e50;
+        }
+        
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        
+        .note strong {
+            color: #d63031;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: #ecf0f1;
+            margin-top: 30px;
+        }
+        
+        footer p {
+            margin: 3px 0;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero-section h2 {
+                font-size: 28px;
+            }
+            
+            .hero-section p {
+                font-size: 16px;
+            }
+            
+            .report-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width,
+            .submit-btn {
+                grid-column: span 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li a {
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="left">สพป.อุบ2</div>
+        <div class="right">
+            <span>📞 Call Us: 0 4548 2412</span>
+            <span>📧 Email: center@ubon2-ed.go.th</span>
+            <a href="#" class="social-icon">f</a>
+        </div>
+    </div>
+    
+    <header>
+        <h1>สพป.อุบลราชธานี เขต 2</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">สพป.อุบลราชธานี เขต 2</a></li>
+            <li><a href="#">หน้าหลัก</a></li>
+            <li><a href="#">ข้อมูลการดำเนินงาน</a></li>
+            <li><a href="#">ร้องเรียน-ร้องทุกข์ ผ่านไป</a></li>
+            <li class="active"><a href="#">ร้องเรียนการทุจริตและประพฤติมิชอบ</a></li>
+            <li><a href="#">ติดต่อเรา</a></li>
+        </ul>
+    </nav>
+    
+    <div class="hero-section">
+        <h2>ร้องเรียนการทุจริตและประพฤติมิชอบ</h2>
+        <p>แบบฟอร์มนี้จัดทำขึ้นเพื่อเป็นช่องทางในการร้องเรียนการทุจริตและประพฤติมิชอบ โดยข้อมูลส่วนบุคคลของท่านที่แจ้งแบบฟอร์มนี้ จะถูกเก็บไว้เป็นความลับ อีกทั้งขอให้ท่านมั่นใจได้ว่า จะได้รับการดำเนินการโดยเจ้าหน้าที่ที่เกี่ยวข้องอย่างรวดเร็วเพื่อให้เกิดความเป็นธรรม</p>
+    </div>
+    
+    <div class="report-section">
+        <div class="note">
+            <strong>**หมายเหตุ: ห้ามนำเนื้อหาของข้อร้องเรียนดังกล่าวไปเผยแพร่บนสื่อสื่อเรียน</strong>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-box">
+                <h3>📍 ที่อยู่</h3>
+                <p>201 หมู่ 5 ตำบลจารากาม-พนา อำเภอเดชอุดม</p>
+                <p>อำนาจเจริญ จังหวัดอำนาจเจริญ 37160</p>
+            </div>
+            <div class="contact-box">
+                <h3>📞 โทรศัพท์</h3>
+                <p>0 4548 2411</p>
+                <p>0 4548 2412</p>
+            </div>
+            <div class="contact-box">
+                <h3>📧 อีเมล</h3>
+                <p>center@ubon2-ed.go.th</p>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h3>กรุณากรอกข้อมูล</h3>
+            <form class="report-form" id="reportForm">
+                <div class="form-group">
+                    <label for="lastName">เลขประชาชน *</label>
+                    <input type="text" id="idNumber" name="idNumber" required maxlength="13" placeholder="กรอกเลขประชาชน 13 หลัก">
+                </div>
+                
+                <div class="form-group">
+                    <label for="firstName">ชื่อ-นามสกุล *</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="กรอกชื่อ-นามสกุล">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">เบอร์โทร</label>
+                    <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxx">
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="complaint">รายละเอียดการร้องเรียน *</label>
+                    <textarea id="complaint" name="complaint" required placeholder="กรุณาระบุรายละเอียดการร้องเรียนอย่างชัดเจน..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">SEND MESSAGE</button>
+            </form>
+        </div>
+        
+        <!-- Admin Panel -->
+        <div class="admin-panel" id="adminPanel" style="display: none;">
+            <h3>ระบบจัดการข้อร้องเรียน</h3>
+            <div class="admin-controls">
+                <button onclick="showReports()" class="admin-btn">📊 ดูข้อร้องเรียนทั้งหมด</button>
+                <button onclick="exportToExcel()" class="admin-btn export-btn">📁 Export Excel</button>
+                <button onclick="backupDatabase()" class="admin-btn">💾 สำรองข้อมูล</button>
+                <button onclick="showDatabaseInfo()" class="admin-btn">ℹ️ ข้อมูลระบบ</button>
+                <button onclick="clearAllReports()" class="admin-btn danger-btn">🗑️ ลบข้อมูลทั้งหมด</button>
+            </div>
+            
+            <div class="reports-container" id="reportsContainer">
+                <div class="reports-summary">
+                    <h4>สรุปข้อร้องเรียน: <span id="totalReports">0</span> รายการ</h4>
+                </div>
+                <div class="reports-list" id="reportsList"></div>
+            </div>
+        </div>
+        
+        <!-- Admin Access Button -->
+        <div class="admin-access">
+            <button onclick="toggleAdminPanel()" class="admin-access-btn">🔐 Admin</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Copyright &copy;2025 All rights reserved</p>
+        <p>This template is made with ❤️ by Colorlib Modify by Wuttipan Dephon</p>
+        <p>กลุ่มข้อมูลสารสนเทศ สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุบลราชธานี เขต 2</p>
+    </footer>
+    
+    <script>
+        // Database simulation using localStorage (persistent storage)
+        const DB_KEY = 'reports_database';
+        const COUNTER_KEY = 'report_counter';
+        
+        // Initialize database
+        function initDatabase() {
+            if (!localStorage.getItem(DB_KEY)) {
+                localStorage.setItem(DB_KEY, JSON.stringify([]));
+            }
+            if (!localStorage.getItem(COUNTER_KEY)) {
+                localStorage.setItem(COUNTER_KEY, '1');
+            }
+        }
+        
+        // Get all reports from database
+        function getAllReports() {
+            try {
+                const reports = localStorage.getItem(DB_KEY);
+                return reports ? JSON.parse(reports) : [];
+            } catch (error) {
+                console.error('Error loading reports:', error);
+                return [];
+            }
+        }
+        
+        // Save report to database
+        function saveReport(report) {
+            try {
+                const reports = getAllReports();
+                reports.push(report);
+                localStorage.setItem(DB_KEY, JSON.stringify(reports));
+                return true;
+            } catch (error) {
+                console.error('Error saving report:', error);
+                return false;
+            }
+        }
+        
+        // Get next report ID
+        function getNextReportId() {
+            try {
+                const currentId = parseInt(localStorage.getItem(COUNTER_KEY)) || 1;
+                localStorage.setItem(COUNTER_KEY, (currentId + 1).toString());
+                return currentId;
+            } catch (error) {
+                console.error('Error getting next ID:', error);
+                return Date.now(); // Fallback to timestamp
+            }
+        }
+        
+        // Delete report from database
+        function deleteReportFromDB(reportId) {
+            try {
+                const reports = getAllReports();
+                const filteredReports = reports.filter(report => report.id !== reportId);
+                localStorage.setItem(DB_KEY, JSON.stringify(filteredReports));
+                return true;
+            } catch (error) {
+                console.error('Error deleting report:', error);
+                return false;
+            }
+        }
+        
+        // Clear all reports from database
+        function clearAllReportsFromDB() {
+            try {
+                localStorage.setItem(DB_KEY, JSON.stringify([]));
+                localStorage.setItem(COUNTER_KEY, '1');
+                return true;
+            } catch (error) {
+                console.error('Error clearing reports:', error);
+                return false;
+            }
+        }
+        
+        // Initialize database on page load
+        window.addEventListener('load', function() {
+            initDatabase();
+            updateReportsDisplay();
+        });
+        
+        // Form validation and submission
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const idNumber = document.getElementById('idNumber').value;
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const complaint = document.getElementById('complaint').value;
+            
+            // Basic validation
+            if (!idNumber || !fullName || !email || !complaint) {
+                alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน');
+                return;
+            }
+            
+            // ID number validation (13 digits)
+            if (idNumber.length !== 13 || !/^\d+$/.test(idNumber)) {
+                alert('กรุณากรอกเลขประชาชนให้ถูกต้อง (13 หลัก)');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('กรุณากรอกอีเมลให้ถูกต้อง');
+                return;
+            }
+            
+            // Create report object
+            const reportId = getNextReportId();
+            const report = {
+                id: reportId,
+                idNumber: idNumber,
+                fullName: fullName,
+                email: email,
+                phone: phone || '-',
+                complaint: complaint,
+                timestamp: new Date().toLocaleString('th-TH', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                }),
+                status: 'รอดำเนินการ',
+                created: new Date().toISOString()
+            };
+            
+            // Save to database
+            if (saveReport(report)) {
+                // Success message
+                alert(`✅ ส่งข้อร้องเรียนเรียบร้อยแล้ว\n\n📋 หมายเลขคำร้อง: ${report.id}\n📅 วันที่: ${report.timestamp}\n\n⏰ เจ้าหน้าที่จะติดต่อกลับภายใน 3-5 วันทำการ`);
+                
+                // Reset form
+                this.reset();
+                
+                // Update display if admin panel is open
+                if (document.getElementById('adminPanel').style.display !== 'none') {
+                    updateReportsDisplay();
+                }
+            } else {
+                alert('❌ เกิดข้อผิดพลาดในการบันทึกข้อมูล กรุณาลองใหม่');
+            }
+        });
+        
+        // Admin panel functions
+        function toggleAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                updateReportsDisplay();
+            } else {
+                panel.style.display = 'none';
+            }
+        }
+        
+        function showReports() {
+            updateReportsDisplay();
+        }
+        
+        function updateReportsDisplay() {
+            const reports = getAllReports();
+            const totalReports = document.getElementById('totalReports');
+            const reportsList = document.getElementById('reportsList');
+            
+            totalReports.textContent = reports.length;
+            
+            if (reports.length === 0) {
+                reportsList.innerHTML = '<p style="text-align: center; color: #7f8c8d; padding: 20px;">📝 ยังไม่มีข้อร้องเรียนในระบบ</p>';
+                return;
+            }
+            
+            // Sort reports by ID (newest first)
+            const sortedReports = reports.sort((a, b) => b.id - a.id);
+            
+            const reportsHTML = sortedReports.map(report => `
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-id">📋 คำร้องเลขที่: ${report.id}</span>
+                        <span class="report-date">📅 ${report.timestamp}</span>
+                    </div>
+                    <div class="report-details">
+                        <div class="report-field"><strong>👤 ชื่อ-นามสกุล:</strong> ${report.fullName}</div>
+                        <div class="report-field"><strong>🆔 เลขประชาชน:</strong> ${report.idNumber}</div>
+                        <div class="report-field"><strong>📧 อีเมล:</strong> ${report.email}</div>
+                        <div class="report-field"><strong>📞 เบอร์โทร:</strong> ${report.phone}</div>
+                    </div>
+                    <div class="report-complaint">
+                        <strong>📝 รายละเอียดการร้องเรียน:</strong><br>
+                        ${report.complaint}
+                    </div>
+                    <button class="delete-btn" onclick="deleteReport(${report.id})">🗑️ ลบข้อร้องเรียน</button>
+                </div>
+            `).join('');
+            
+            reportsList.innerHTML = reportsHTML;
+        }
+        
+        function deleteReport(reportId) {
+            if (confirm('⚠️ ต้องการลบข้อร้องเรียนนี้หรือไม่?\n\nการกระทำนี้ไม่สามารถย้อนกลับได้')) {
+                if (deleteReportFromDB(reportId)) {
+                    updateReportsDisplay();
+                    alert('✅ ลบข้อร้องเรียนเรียบร้อยแล้ว');
+                } else {
+                    alert('❌ เกิดข้อผิดพลาดในการลบข้อมูล');
+                }
+            }
+        }
+        
+        function clearAllReports() {
+            const reports = getAllReports();
+            if (reports.length === 0) {
+                alert('ℹ️ ไม่มีข้อมูลให้ลบ');
+                return;
+            }
+            
+            if (confirm(`⚠️ ต้องการลบข้อร้องเรียนทั้งหมด ${reports.length} รายการหรือไม่?\n\n🔴 การกระทำนี้ไม่สามารถย้อนกลับได้`)) {
+                if (clearAllReportsFromDB()) {
+                    updateReportsDisplay();
+                    alert('✅ ลบข้อร้องเรียนทั้งหมดเรียบร้อยแล้ว');
+                } else {
+                    alert('❌ เกิดข้อผิดพลาดในการลบข้อมูล');
+                }
+            }
+        }
+        
+        function exportToExcel() {
+            const reports = getAllReports();
+            
+            if (reports.length === 0) {
+                alert('ℹ️ ไม่มีข้อมูลให้ Export');
+                return;
+            }
+            
+            try {
+                // Create CSV content with Thai headers
+                const csvHeader = 'หมายเลขคำร้อง,วันที่เวลา,ชื่อ-นามสกุล,เลขประชาชน,อีเมล,เบอร์โทร,รายละเอียดการร้องเรียน,สถานะ\n';
+                const csvContent = reports
+                    .sort((a, b) => a.id - b.id) // Sort by ID ascending
+                    .map(report => {
+                        // Escape quotes in text fields
+                        const escapeCSV = (text) => `"${text.toString().replace(/"/g, '""')}"`;
+                        
+                        return [
+                            report.id,
+                            escapeCSV(report.timestamp),
+                            escapeCSV(report.fullName),
+                            escapeCSV(report.idNumber),
+                            escapeCSV(report.email),
+                            escapeCSV(report.phone),
+                            escapeCSV(report.complaint),
+                            escapeCSV(report.status || 'รอดำเนินการ')
+                        ].join(',');
+                    }).join('\n');
+                
+                const fullCsvContent = csvHeader + csvContent;
+                
+                // Create and download file
+                const blob = new Blob(['\ufeff' + fullCsvContent], { 
+                    type: 'text/csv;charset=utf-8;' 
+                });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                
+                const currentDate = new Date().toISOString().split('T')[0];
+                const fileName = `ข้อร้องเรียน_${currentDate}_${reports.length}รายการ.csv`;
+                
+                link.setAttribute('href', url);
+                link.setAttribute('download', fileName);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                
+                alert(`✅ Export ข้อมูลเรียบร้อยแล้ว\n\n📁 ไฟล์: ${fileName}\n📊 จำนวน: ${reports.length} รายการ`);
+            } catch (error) {
+                console.error('Export error:', error);
+                alert('❌ เกิดข้อผิดพลาดในการ Export ข้อมูล');
+            }
+        }
+        
+        // Backup and restore functions
+        function backupDatabase() {
+            try {
+                const reports = getAllReports();
+                const counter = localStorage.getItem(COUNTER_KEY);
+                const backupData = {
+                    reports: reports,
+                    counter: counter,
+                    exportDate: new Date().toISOString(),
+                    version: '1.0'
+                };
+                
+                const jsonData = JSON.stringify(backupData, null, 2);
+                const blob = new Blob([jsonData], { type: 'application/json' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                
+                const currentDate = new Date().toISOString().split('T')[0];
+                link.setAttribute('href', url);
+                link.setAttribute('download', `backup_reports_${currentDate}.json`);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                
+                alert('✅ สำรองข้อมูลเรียบร้อยแล้ว');
+            } catch (error) {
+                console.error('Backup error:', error);
+                alert('❌ เกิดข้อผิดพลาดในการสำรองข้อมูล');
+            }
+        }
+        
+        // ID number input formatting
+        document.getElementById('idNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 13) {
+                value = value.slice(0, 13);
+            }
+            e.target.value = value;
+        });
+        
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) {
+                value = value.slice(0, 10);
+            }
+            e.target.value = value;
+        });
+        
+        // Add database info display
+        function showDatabaseInfo() {
+            const reports = getAllReports();
+            const totalSize = new Blob([localStorage.getItem(DB_KEY)]).size;
+            const sizeInKB = (totalSize / 1024).toFixed(2);
+            
+            alert(`📊 ข้อมูลฐานข้อมูล\n\n📝 จำนวนข้อร้องเรียน: ${reports.length} รายการ\n💾 ขนาดข้อมูล: ${sizeInKB} KB\n🗄️ ระบบจัดเก็บ: LocalStorage (ถาวร)\n\n✅ ข้อมูลจะถูกเก็บไว้แม้ปิดเบราว์เซอร์`);
+        }
+    </script>
+</body>
+</html>

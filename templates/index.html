@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ร้องเรียนการทุจริต</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>📝 แบบฟอร์มร้องเรียน</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flash-messages">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form action="/submit" method="POST" class="form-container">
+    <label>เลขประชาชน *</label>
+    <input type="text" name="idNumber" required maxlength="13">
+
+    <label>ชื่อ-นามสกุล *</label>
+    <input type="text" name="fullName" required>
+
+    <label>Email *</label>
+    <input type="email" name="email" required>
+
+    <label>เบอร์โทร</label>
+    <input type="text" name="phone">
+
+    <label>รายละเอียด *</label>
+    <textarea name="complaint" required rows="5"></textarea>
+
+    <button type="submit">📩 ส่งข้อมูล</button>
+  </form>
+</body>
+</html>
